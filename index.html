@@ -27,6 +27,12 @@
         width: 50%;
         height: 50%;
       }
+
+      img.deps {
+        box-shadow: none !important;
+        background: transparent !important;
+        border: 0 !important;
+      }
     </style>
 
     <!-- Printing and PDF exports -->
@@ -159,19 +165,43 @@
 
         <section>
           <section>
-            <h1></h1>
-            <p></p>
+            <h1>DDD</h1>
 
             <ul>
-              <li class="fragment" data-fragment-index="1">Movimentar dinheiro</li>
-              <li class="fragment" data-fragment-index="2">Validar carteiras (saldo)</li>
             </ul>
+          </section>
+
+          <section>
+            <h1>Event Sourcing</h1>
+
+            <ul>
+              <li class="fragment" data-fragment-index="1">Organiza operações em forma de eventos</li>
+              <li class="fragment" data-fragment-index="2">Eventos como estado</li>
+              <li class="fragment" data-fragment-index="3">Persitencia (event store)</li>
+              <li class="fragment" data-fragment-index="4">Comunicação entre serviços</li>
+              <li class="fragment" data-fragment-index="5">Facilidade em possiveis auditoria (bank)</li>
+            </ul>
+          </section>
+
+          <section>
+            <h1>CQRS + Event Sourcing = ❤</h1>
+
+            <ul>
+              <li class="fragment" data-fragment-index="1">Separação de Query (busca de informações) e Command (operações)</li>
+              <li class="fragment" data-fragment-index="2">Camada de apresentação separada</li>
+            </ul>
+          </section>
+
+          <section>
+            <p>
+              <img class="deps" src="img/dependencies.png">
+            </p>
           </section>
         </section>
       </div>
     </div>
 
-    <script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.3.0"></script>
+    <script src="https://twemoji.maxcdn.com/2/twemoji.min.js?2.3.0"></script>
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.js"></script>
 
