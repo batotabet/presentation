@@ -46,6 +46,14 @@
         left: 0;
         right: 0;
       }
+
+      th {
+        text-align: center !important;
+      }
+
+      th img {
+        display: inline-block;
+      }
     </style>
 
     <!-- Printing and PDF exports -->
@@ -85,9 +93,11 @@
             <h1>DDD</h1>
 
             <ul>
-              <li class="fragment" data-fragment-index="1">"Think in domains"</li>
-              <li class="fragment" data-fragment-index="2"></li>
-              <li class="fragment" data-fragment-index="3">Não é uma ciência exata 😩</li>
+              <!-- pode ser aplicado em outras areas -->
+              <li class="fragment" data-fragment-index="1">Metodologia de desenvolvimento de software</li>
+              <li class="fragment" data-fragment-index="2">"Think in domains"</li>
+              <li class="fragment" data-fragment-index="3">Ponte entre dominio e implementação</li>
+              <li class="fragment" data-fragment-index="4">Não é uma ciência exata 😩</li>
             </ul>
           </section>
 
@@ -119,6 +129,46 @@
 
           <section>
             <img src="img/patterns-ddd.png">
+          </section>
+
+          <section>
+            <h2>Ubiquitous language</h2>
+
+            <table>
+              <thead>
+                <th>🧙‍♂️</th>
+                <th>👾</th>
+                <th>👨‍🏫</th>
+              </thead>
+              <tbody>
+                <!-- Quando o domain expert é simplista -->
+                <tr>
+                  <td>Aposta + Carteira</td>
+                  <td>Aposta + Evento + Carteira</td>
+                  <td>Aposta</td>
+                </tr>
+
+                <!-- Quando o domain expert fala coisas que estão fora do escopo -->
+                <tr class="fragment" data-fragment-index="1">
+                  <td>Proporção</td>
+                  <td>Proporção</td>
+                  <td>Apostas + Evento + Desfecho</td>
+                </tr>
+
+                <!-- Quando o domain expert utiliza apenas uma palavra diferente -->
+                <tr class="fragment" data-fragment-index="2">
+                  <td>Conta</td>
+                  <td>Carteira</td>
+                  <td>Usuário</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section>
+            <p class="large-emoji">
+              🤦‍♂️
+            </p>
           </section>
 
           <section>
