@@ -76,14 +76,21 @@
 
           <section class="large-emoji">
             💥
+
+            <aside class="notes">
+              <ul>
+                <li>Demonstração de uso</li>
+                <li>Conceitos basicos</li>
+                <li>Alguns pontos interessantes</li>
+              </ul>
+            </aside>
           </section>
 
           <section>
-            <img src="">
-            <p class="fragment" data-fragment-index="1">Gabriel Corado</p>
-            <p class="fragment" data-fragment-index="2">SoftwareDeveloper@Totvs</p>
-            <p class="fragment" data-fragment-index="3">
-            <i>Github:</i> <a href="https://github.com/gabrielcorado">@gabrielcorado</a>
+            <p>Gabriel Corado</p>
+            <p class="fragment" data-fragment-index="1">SoftwareDeveloper@Totvs</p>
+            <p data-notes="Hello" class="fragment" data-fragment-index="2">
+              <i>Github:</i> <a href="https://github.com/gabrielcorado">@gabrielcorado</a>
             </p>
           </section>
         </section>
@@ -99,6 +106,15 @@
               <li class="fragment" data-fragment-index="3">Ponte entre dominio e implementação</li>
               <li class="fragment" data-fragment-index="4">Não é uma ciência exata 😩</li>
             </ul>
+
+            <aside class="notes">
+              <ol>
+                <li>Define processos para o desenvolvimento</li>
+                <li>Dominio é uma area de estudo que possui requisitos e funcionalidades</li>
+                <li>Facilidade do mapeamento do dominio e software</li>
+                <li>Possui conceitos abstratos, que possibilitam diversas interpretações</li>
+              </ol>
+            </aside>
           </section>
 
           <section>
@@ -114,6 +130,14 @@
                 <span class="fragment override" data-fragment-index="3">👨‍🏫Domain Experts👨‍🏫</span>
               </p>
             </h2>
+
+            <aside class="notes">
+              <ol>
+                <li>O DDD resolve problema entre os envolvidos no desnv. software</li>
+                <li>Comunicação</li>
+                <li>Definição DO Software em questão</li>
+              </ol>
+            </aside>
           </section>
 
           <section>
@@ -122,13 +146,64 @@
             <ul>
               <li class="fragment" data-fragment-index="1">Convergência das areas</li>
               <li class="fragment" data-fragment-index="2">Modelagem</li>
-              <li class="fragment" data-fragment-index="3">Representar dominio</li>
+              <li class="fragment" data-fragment-index="3">Represetação dos dominios</li>
               <li class="fragment" data-fragment-index="4">Utilizado como forma de documentação</li>
             </ul>
+
+            <aside class="notes">
+              <p>Para resolver o problema de comunicação, ele introduz o MDD</p>
+
+              <ol>
+                <li>Definição DO software</li>
+                <li>Representa o estado atual do software</li>
+                <li>Quando aplicado junto a metodologias ágeis, representa uma iteração</li>
+              </ol>
+
+              <p><strong>Sempre bom mante-lo atualizado</strong></p>
+            </aside>
           </section>
 
           <section>
             <img src="img/patterns-ddd.png">
+
+            <aside class="notes">
+              <p>O que define o modelo são os chamados "blocos", representados por cada circulo (elipse)</p>
+              <ol>
+                <li>Blocos de definição do "modelo"</li>
+                <li>
+                  Dominio possui niveis de representação
+
+                  <ul>
+                    <li><strong>Entidades</strong> Objeto "rastreavel" (identificado)</li>
+                    <li><strong>Value Objects</strong> Valores "internos" ao dominio (detalhamento das entidades)</li>
+                    <li><strong>Services</strong> Operações do dominio (stateless) - toda informação necessaria para executar deve ser passada para ela</li>
+                    <li>Dos tres niveis para dentro, é como essas partes são persistidas e provisionadas</li>
+                  </ul>
+                </li>
+                <li>Aplicação organizada em camadas</li>
+              </ol>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Layered Application</h2>
+
+            <ul>
+              <li class="fragment" data-fragment-index="1">Presentation Layer</li>
+              <li class="fragment" data-fragment-index="2">Application Layer</li>
+              <li class="fragment" data-fragment-index="3">Domain Layer</li>
+              <li class="fragment" data-fragment-index="4">Infrastructure Layer</li>
+            </ul>
+
+            <aside class="notes">
+              <p>Possui 3 camadas:</p>
+              <ol>
+                <li>Responsavel por representar as informações para o usuario e processar seus comandos</li>
+                <li>Controla fluxo da aplicação, nao tem regra de negocio. mas pode possuir o estado atual da app (ex: http req e bg job)</li>
+                <li>THE DOMAIN</li>
+                <li>Serve de suporte para as outras camadas. oferecendo as funcionalidas que saem da camada</li>
+              </ol>
+            </aside>
           </section>
 
           <section>
@@ -141,39 +216,56 @@
                 <th>👨‍🏫</th>
               </thead>
               <tbody>
-                <!-- Quando o domain expert é simplista -->
-                <tr>
+                <tr class="fragment" data-fragment-index="1">
                   <td>Aposta + Carteira</td>
                   <td>Aposta + Evento + Carteira</td>
                   <td>Aposta</td>
                 </tr>
 
-                <!-- Quando o domain expert fala coisas que estão fora do escopo -->
-                <tr class="fragment" data-fragment-index="1">
+                <tr class="fragment" data-fragment-index="2">
                   <td>Proporção</td>
                   <td>Proporção</td>
                   <td>Apostas + Evento + Desfecho</td>
                 </tr>
 
-                <!-- Quando o domain expert utiliza apenas uma palavra diferente -->
-                <tr class="fragment" data-fragment-index="2">
+                <tr class="fragment" data-fragment-index="3">
                   <td>Conta</td>
                   <td>Carteira</td>
                   <td>Usuário</td>
                 </tr>
               </tbody>
             </table>
+
+            <aside class="notes">
+              <p>Outro ponto importante do modelo, é facilitar a comunicação, o UBIQLANG cria um "dicionario" que deve ser utilizado por todos</p>
+              <ol>
+                <li>Quando o domain expert é simplista (inflando demais o dominio)</li>
+                <li>Quando o domain expert fala coisas que estão fora do escopo</li>
+                <li>Quando o domain expert utiliza apenas uma palavra diferente</li>
+              </ol>
+              <p><strong>Esse tipo de modelagem ajuda a esclarecer alguns pontos do dominio<strong></p>
+            </aside>
           </section>
 
           <section>
             <p class="large-emoji">
               🤦‍♂️
             </p>
+
+            <aside class="notes">
+              Este tipo de falha de comunicação gera o famoso "tamo falando a mesma coisa", alem de deixar aberto a interpretações diferentes
+            </aside>
           </section>
 
           <section>
             <h1>DDD For Life</h1>
             <p class="medium-emoji">👍</p>
+
+            <aside class="notes">
+              <p>Recomendaria para qualquer projeto</p>
+              <p>MAS, Não é receita de bolo. A utilização dos "core concepts" facilita o desenvolvimento de software</p>
+              <p><strong>Um "bypass" em algumas partes é aceitavel. é tudo uma questão de analisar o contexto</strong></p>
+            </aside>
           </section>
         </section>
 
@@ -183,35 +275,55 @@
             <h1 class="fragment" data-fragment-index="1">Site de apostas</h1>
             <h6 class="fragment" data-fragment-index="2">de jogos eletronicos</h6>
             <small class="fragment" data-fragment-index="3">(e todas tretas envolvidas)</small>
+
+            <aside class="notes">
+              <p>para exemplificar o uso do DDD vou propor o desenvolvimento de uma app</p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Batota.bet</h1>
           </section>
 
           <section>
             <h3>Aposta</h3>
 
             <p>
-            <span class="fragment" data-fragment-index="1">1. Evento</span><br>
-            <small class="fragment" data-fragment-index="2"><i>Vencedor da partida</i></small>
+              <span class="fragment" data-fragment-index="1">1. Evento</span><br>
+              <small class="fragment" data-fragment-index="2"><i>Vencedor da partida</i></small>
             </p>
 
             <p>
-            <span class="fragment" data-fragment-index="3">2. Desfechos</span><br>
-            <small class="fragment" data-fragment-index="4"><i>Time A ou Time B</i></small>
+              <span class="fragment" data-fragment-index="3">2. Desfechos</span><br>
+              <small class="fragment" data-fragment-index="4"><i>Time A ou Time B</i></small>
             </p>
 
             <p>
-            <span class="fragment" data-fragment-index="5">3. $$$</span><br>
-            <small class="fragment" data-fragment-index="6"><i>R$ 10.00 ☹️</i></small>
+              <span class="fragment" data-fragment-index="5">3. $$$</span><br>
+              <small class="fragment" data-fragment-index="6"><i>R$ 10.00 ☹️</i></small>
             </p>
 
             <p>
-            <span class="fragment" data-fragment-index="7">4. Time Window</span><br>
-            <small class="fragment" data-fragment-index="8"><i>Entre descobrimento da partida e antes do termino do seu termino</i></small>
+              <span class="fragment" data-fragment-index="7">4. Time Window</span><br>
+              <small class="fragment" data-fragment-index="8"><i>Entre descobrimento da partida e antes do termino do seu termino</i></small>
             </p>
 
             <p>
-            <span class="fragment" data-fragment-index="9">5. Proporção</span><br>
-            <small class="fragment" data-fragment-index="10"><i>1.5</i></small>
+              <span class="fragment" data-fragment-index="9">5. Proporção</span><br>
+              <small class="fragment" data-fragment-index="10"><i>1.5</i></small>
             </p>
+
+            <aside class="notes">
+              <p>começar definindo o escopo como um especialista</p>
+              <p>no caso temos a posta, que é composta por:</p>
+              <ol>
+                <li>acontecimento previsto (por um discovery)</li>
+                <li>possiveis valores desse evento (tambem por um discovery)</li>
+                <li>dinheiro apostado</li>
+                <li>periodo em que pode-se fazer apostas</li>
+                <li>numero magico que vai difinir a quantidade de dinheiro que sera repassada aos vencedores</li>
+              </ol>
+            </aside>
           </section>
 
           <section>
@@ -233,7 +345,65 @@
           </section>
 
           <section>
-            <img class="deps" src="img/model-punter.png">
+            <h2>Dominios identificados</h2>
+
+            <ul>
+              <li class="fragment" data-fragment-index="1">Aposta</li>
+              <li class="fragment" data-fragment-index="2">Partida</li>
+              <li class="fragment" data-fragment-index="3">Carteira (do usuário)</li>
+            </ul>
+
+            <aside class="notes">
+              <ol>
+                <li>Aposta</li>
+                <li>Partida do jogo em que as apostas serão feitas</li>
+                <li>Referente ao patrimonio do usuario</li>
+              </ol>
+            </aside>
+          </section>
+
+          <section>
+            <img class="deps" src="img/just-eventos.png">
+
+            <aside class="notes">
+              <p>Fluxo é orientado ao tempo</p>
+              <p>Pode ser mapeado para eventos</p>
+              <p>Apos o termino da partidada, usuarios vencedores recebem o dinheiro</p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Event Sourcing</h1>
+
+            <ul>
+              <li class="fragment" data-fragment-index="1">Organiza operações em forma de eventos</li>
+              <li class="fragment" data-fragment-index="2">Append-only updates</li>
+              <li class="fragment" data-fragment-index="3">Navegação no histórico</li>
+              <li class="fragment" data-fragment-index="4">Eventos como estado</li>
+              <li class="fragment" data-fragment-index="5">Persitencia (event store)</li>
+              <li class="fragment" data-fragment-index="6">Comunicação entre serviços</li>
+            </ul>
+
+            <aside class="notes">
+              <p>Esse fluxo pode utilizar de uma arquitetura chamada event sourcing</p>
+              <ul>
+                <li>Estado das aplicações em forma de evento</li>
+                <li>Acesso: View agregada (Aggregate do DDD)</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <h1>CQRS + Event Sourcing = 🎉</h1>
+
+            <ul>
+              <li class="fragment" data-fragment-index="1">Separação de Query (busca de informações) e Command (operações)</li>
+              <li class="fragment" data-fragment-index="2">Camada de apresentação separada</li>
+            </ul>
+
+            <aside class="notes">
+              <p>Pattern que ajuda muito a utilização da arquitetura</p>
+            </aside>
           </section>
 
           <section>
@@ -241,6 +411,11 @@
             <h2 class="fragment" data-fragment-index="1">1. Apostador (Punter)</h2>
             <h5 class="fragment" data-fragment-index="2">2. Event Crawlers (dos jogos) (finkers)</h5>
             <h5 class="fragment" data-fragment-index="3">3. Transações de dinheiro (bank)</h5>
+
+            <aside class="notes">
+              <p>Definido a arquitetura e os patterns, vamos isolar as responsabilidades e atribui-las a cada componente</p>
+              <p>Assim temos os compontentes:</p>
+            </aside>
           </section>
 
           <section>
@@ -261,7 +436,6 @@
             <ul>
               <li class="fragment" data-fragment-index="1">Descobrir partidas</li>
               <li class="fragment" data-fragment-index="2">Descobrir eventos</li>
-              <li class="fragment" data-fragment-index="3">Descobrir possiveis desefechos dos eventos</li>
               <li class="fragment" data-fragment-index="4">Definir desfechos para os eventos</li>
             </ul>
           </section>
@@ -275,35 +449,77 @@
               <li class="fragment" data-fragment-index="2">Validar carteiras (saldo)</li>
             </ul>
           </section>
-        </section>
-
-        <section>
-
-          <section>
-            <h1>Event Sourcing</h1>
-
-            <ul>
-              <li class="fragment" data-fragment-index="1">Organiza operações em forma de eventos</li>
-              <li class="fragment" data-fragment-index="2">Eventos como estado</li>
-              <li class="fragment" data-fragment-index="3">Persitencia (event store)</li>
-              <li class="fragment" data-fragment-index="4">Comunicação entre serviços</li>
-              <li class="fragment" data-fragment-index="5">Facilidade em possiveis auditoria (bank)</li>
-            </ul>
-          </section>
-
-          <section>
-            <h1>CQRS + Event Sourcing = ❤</h1>
-
-            <ul>
-              <li class="fragment" data-fragment-index="1">Separação de Query (busca de informações) e Command (operações)</li>
-              <li class="fragment" data-fragment-index="2">Camada de apresentação separada</li>
-            </ul>
-          </section>
 
           <section>
             <p>
               <img class="deps" src="img/dependencies.png">
             </p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Live demo</h1>
+            <p class="fragment medium-emoji" data-fragment-index="1">😕</p>
+
+            <aside class="notes">
+              <p>Ia ter live demo, mas acabei me enrolando com o tempo (de desenvolvimento) e o app não ficou pronto</p>
+            </aside>
+          </section>
+
+          <section>
+            <h3>🚀Call for participation🚀</h3>
+            <p class="fragment" data-fragment-index="1">
+              <a href="https://github.com/batotabet">https://github.com/batotabet</a>
+            </p>
+            <p class="fragment" data-fragment-index="1">
+              <a href="https://batota.bet">https://batota.bet</a>
+            </p>
+
+            <aside class="notes">
+              <p>Convido a galera que quiser a contribuir com o Batotabet</p>
+              <p>Até o final da semana que vem estarei publicando o "spec"</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Conclusões</h1>
+          </section>
+
+          <section>
+            <ul>
+              <li class="fragment" data-fragment-index="1">DDD for life</li>
+              <li class="fragment" data-fragment-index="2">CQRS facilita muito a mundo assincrono</li>
+              <li class="fragment" data-fragment-index="3">Para fazer "queries" no estado (evento) é necessario consolidadores</li>
+              <li class="fragment" data-fragment-index="4">Delegação de responsabilidades é um passo importante</li>
+              <li class="fragment" data-fragment-index="5">Integrações estão ficando cada vez mais dificies de isolar</li>
+              <li class="fragment" data-fragment-index="6">IBM tem Kafka as a Service</li>
+            </ul>
+
+            <aside class="notes">
+              <ul>
+                <li>Essa isolação possibilita o "get" centralizado, alem de outras opções como long-pooling</li>
+                <li>View consolidada é muito importante na arquitetura de eventos, por conta de não ser viavel recalcular todo historico para fazer uma busca</li>
+                <li>Delegar responsabilidade um isolamento que muitas vezes não acontece por conta da facilidade</li>
+                <li>um exemplo é o gRPC, que define os contratos (de chamada de metodos) por meio de um componente de infraestrutura, por conta disso acaba ficando regra duplicada se for feita o seu isolamento</li>
+                <li>E não custa $1500</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <p class="large-emoji">❓</p>
+
+            <aside class="notes">
+              <p>Duvidas?</p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>ValeW!</h1>
+            <p class="medium-emoji">🍕🍺</p>
           </section>
         </section>
       </div>
